@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp1.DB;
 
 namespace WinFormsApp1.Views
 {
     public partial class FormMain : Form
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public FormMain()
         {
+
             InitializeComponent();
         }
 
