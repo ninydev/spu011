@@ -75,6 +75,7 @@
             this.btnCreateGroup = new System.Windows.Forms.Button();
             this.groupBoxGroup = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDeleteStudent = new System.Windows.Forms.Button();
             this.btnCreateStudent = new System.Windows.Forms.Button();
             this.lstStudents = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
@@ -461,6 +462,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDeleteStudent);
             this.groupBox1.Controls.Add(this.btnCreateStudent);
             this.groupBox1.Controls.Add(this.lstStudents);
             this.groupBox1.Location = new System.Drawing.Point(218, 52);
@@ -469,6 +471,17 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Students";
+            // 
+            // btnDeleteStudent
+            // 
+            this.btnDeleteStudent.Enabled = false;
+            this.btnDeleteStudent.Location = new System.Drawing.Point(6, 316);
+            this.btnDeleteStudent.Name = "btnDeleteStudent";
+            this.btnDeleteStudent.Size = new System.Drawing.Size(116, 23);
+            this.btnDeleteStudent.TabIndex = 2;
+            this.btnDeleteStudent.Text = "DeleteStudent";
+            this.btnDeleteStudent.UseVisualStyleBackColor = true;
+            this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
             // 
             // btnCreateStudent
             // 
@@ -488,6 +501,7 @@
             this.lstStudents.Name = "lstStudents";
             this.lstStudents.Size = new System.Drawing.Size(188, 259);
             this.lstStudents.TabIndex = 0;
+            this.lstStudents.SelectedIndexChanged += new System.EventHandler(this.lstStudents_SelectedIndexChanged);
             // 
             // FormMain
             // 
@@ -562,5 +576,6 @@
         private GroupBox groupBox1;
         private ListBox lstStudents;
         private Button btnCreateStudent;
+        private Button btnDeleteStudent;
     }
 }

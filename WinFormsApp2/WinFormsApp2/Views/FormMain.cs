@@ -25,13 +25,17 @@ namespace WinFormsApp2.Views
         private void LoadGroupsToListBox()
         {
             lstGroups.Items.Clear();
-            
+
             // Явная загрузка всех сущностей с отношениями
             // var grups = db.Groups.Include(g => g.Students);
             // lstGroups.Items.AddRange(grups.ToArray());
 
+            var grups = db.Groups; // .Include(g => g.Students);
+            lstGroups.Items.AddRange(grups.ToArray());
+
+
             // Загрузка только сущностей групп
-            lstGroups.Items.AddRange(db.Groups.ToArray());
+            // lstGroups.Items.AddRange(db.Groups.ToArray());
         }
 
 
@@ -85,6 +89,7 @@ namespace WinFormsApp2.Views
         Group selectedGroup = null;
         private void lstGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnDeleteStudent.Enabled = false;
             selectedGroup = (Group) (sender as ListBox).SelectedItem;
             LoadStudentToListBox();
             // MessageBox.Show((sender as ListBox).SelectedItem.ToString());
@@ -120,6 +125,37 @@ namespace WinFormsApp2.Views
                 }
                 LoadStudentToListBox();
             }
+        }
+
+        private void lstStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnDeleteStudent.Enabled = true;
+           
+        }
+
+        private void btnDeleteStudent_Click(object sender, EventArgs e)
+        {
+            if(lstStudents.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Нет выделенного студента");
+                (sender as Button).Enabled = false;
+                return;
+            }
+            List<Student> studentsToDel = new List<Student>();
+
+            foreach (var item in lstStudents.SelectedItems)
+            {
+                studentsToDel.Add((Student)item);
+                
+            }
+
+            foreach (var item in studentsToDel)
+            {
+                lstStudents.Items.Remove(item);
+            }
+
+            db.RemoveRange(studentsToDel);
+            db.SaveChanges();
         }
     }
 }
