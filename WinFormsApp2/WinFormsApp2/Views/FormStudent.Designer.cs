@@ -36,11 +36,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBoxAvatar = new System.Windows.Forms.PictureBox();
+            this.btnAvatar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(222, 115);
+            this.btnAdd.Location = new System.Drawing.Point(222, 313);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 11;
@@ -50,7 +53,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(17, 115);
+            this.btnCancel.Location = new System.Drawing.Point(12, 313);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 10;
@@ -108,11 +111,31 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Email";
             // 
+            // pictureBoxAvatar
+            // 
+            this.pictureBoxAvatar.Location = new System.Drawing.Point(12, 120);
+            this.pictureBoxAvatar.Name = "pictureBoxAvatar";
+            this.pictureBoxAvatar.Size = new System.Drawing.Size(285, 118);
+            this.pictureBoxAvatar.TabIndex = 14;
+            this.pictureBoxAvatar.TabStop = false;
+            // 
+            // btnAvatar
+            // 
+            this.btnAvatar.Location = new System.Drawing.Point(20, 247);
+            this.btnAvatar.Name = "btnAvatar";
+            this.btnAvatar.Size = new System.Drawing.Size(75, 23);
+            this.btnAvatar.TabIndex = 15;
+            this.btnAvatar.Text = "Avatar";
+            this.btnAvatar.UseVisualStyleBackColor = true;
+            this.btnAvatar.Click += new System.EventHandler(this.btnAvatar_Click);
+            // 
             // FormStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 150);
+            this.ClientSize = new System.Drawing.Size(329, 348);
+            this.Controls.Add(this.btnAvatar);
+            this.Controls.Add(this.pictureBoxAvatar);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnAdd);
@@ -123,6 +146,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormStudent";
             this.Text = "FormStudent";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,5 +162,7 @@
         private Label label1;
         public TextBox txtEmail;
         private Label label3;
+        private Button btnAvatar;
+        public PictureBox pictureBoxAvatar;
     }
 }

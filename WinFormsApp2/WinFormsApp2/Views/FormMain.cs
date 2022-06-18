@@ -108,10 +108,21 @@ namespace WinFormsApp2.Views
             FormStudent formStudent = new FormStudent();
             if(formStudent.ShowDialog() == DialogResult.OK)
             {
-                Student newStudent = new() { Name = formStudent.txtName.Text, Email = formStudent.txtEmail.Text };
+                Student newStudent = new() { 
+                    Name = formStudent.txtName.Text, 
+                    Email = formStudent.txtEmail.Text,
+                    Avatar = formStudent.pictureBoxAvatar.ImageLocation
+                };
                 newStudent.Group = selectedGroup;
+
                 try
                 {
+                    using (var fs = new FileStream(newStudent.Avatar, FileMode.Open))
+                    {
+                        newStudent.Image = new byte[fs.Length];
+                        fs.Read(newStudent.Image, 0, newStudent.Image.Length);
+                    }
+
                     db.Add(newStudent);
                     db.SaveChanges();
                 }

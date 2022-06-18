@@ -10,26 +10,29 @@ using System.Windows.Forms;
 
 namespace WinFormsApp2.Views
 {
-    public partial class FormStudent : Form
+    public partial class FormSimpleImg : Form
     {
-        public FormStudent()
+        public FormSimpleImg()
         {
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void FormSimpleImg_Load(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            Close();
+
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnLarge_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
-            Close();
+            listViewCodes.View = View.LargeIcon;
         }
 
-        private void btnAvatar_Click(object sender, EventArgs e)
+        private void btnSmall_Click(object sender, EventArgs e)
+        {
+            listViewCodes.View = View.SmallIcon;
+        }
+
+        private void btnLoadImage_Click(object sender, EventArgs e)
         {
             var f = new OpenFileDialog();
             f.Filter = "Image Files|*.jpg;*.png| All files (*.*)|*.*";

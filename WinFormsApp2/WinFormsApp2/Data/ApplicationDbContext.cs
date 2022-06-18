@@ -17,6 +17,7 @@ namespace WinFormsApp2.Data
 
         public DbSet<Models.Group> Groups { get; set; }
         public DbSet<Models.Student> Students { get; set; }
+        public DbSet<Models.Document> Documents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
