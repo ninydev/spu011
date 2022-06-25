@@ -13,7 +13,9 @@ namespace WinFormsApp2.Data
         //{
         //    this.Configuration.LazyLoadingEnabled = true;
         //}
-
+        public DbSet<Models.Author> Authors { get; set; }
+        public DbSet<Models.Post> Posts { get; set; }
+        public DbSet<Models.Tag> Tags { get; set; }
 
         public DbSet<Models.Group> Groups { get; set; }
         public DbSet<Models.Student> Students { get; set; }
@@ -21,6 +23,14 @@ namespace WinFormsApp2.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
+
+            builder.Entity<Models.Post>()
+                .HasMany<Models.Tag>(p=> p.Tags)
+                .WithMany(t=> t.Posts)
+                .UsingEntity(j => j.ToTable("Pivot_TagForPosts"));
+
+
             builder.Entity<Models.Student>()
                 .HasIndex(u => u.Email)
                 .IsUnique();

@@ -22,5 +22,14 @@ namespace WinFormsApp2.Models
         public byte[] Data { get; set; }
 
         public virtual List<Student> Students { get; set; } = new List<Student>();
+
+        //[Column(TypeName = "DateTime")]
+        //public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        //byte m;
+        //byte[] y;
+
+        //DateTime d;
+
     }
 }
