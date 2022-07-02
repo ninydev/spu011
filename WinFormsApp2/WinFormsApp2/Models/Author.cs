@@ -13,6 +13,10 @@ namespace WinFormsApp2.Models
 
         public string Title { get; set; }
 
+        public int Level { get; set; } 
+
         virtual public List<Post> Posts { get; set; }
+
+        virtual public List<Tag> Tags { get; set; }
     }
 }

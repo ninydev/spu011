@@ -14,5 +14,6 @@ namespace WinFormsApp2.Models
         public string Name { get; set; }
 
         virtual public List<Post> Posts { get; set; }
+        virtual public List<Post> Authors { get; set; }
     }
 }

@@ -17,26 +17,26 @@ namespace WinFormsApp2.Data
         public DbSet<Models.Post> Posts { get; set; }
         public DbSet<Models.Tag> Tags { get; set; }
 
-        public DbSet<Models.Group> Groups { get; set; }
-        public DbSet<Models.Student> Students { get; set; }
-        public DbSet<Models.Document> Documents { get; set; }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
             builder.Entity<Models.Post>()
-                .HasMany<Models.Tag>(p=> p.Tags)
-                .WithMany(t=> t.Posts)
-                .UsingEntity(j => j.ToTable("Pivot_TagForPosts"));
+                .Property(p => p.CreatedAt)
+                .HasDefaultValueSql("getdate()");
+
+            //builder.Entity<Models.Post>()
+            //    .HasMany<Models.Tag>(p=> p.Tags)
+            //    .WithMany(t=> t.Posts)
+            //    .UsingEntity(j => j.ToTable("Pivot_TagForPosts"));
 
 
-            builder.Entity<Models.Student>()
-                .HasIndex(u => u.Email)
-                .IsUnique();
-            builder.Entity<Models.Group>()
-                .HasIndex(u => u.Name)
-                .IsUnique();
+            //builder.Entity<Models.Student>()
+            //    .HasIndex(u => u.Email)
+            //    .IsUnique();
+            //builder.Entity<Models.Group>()
+            //    .HasIndex(u => u.Name)
+            //    .IsUnique();
         }
 
 
