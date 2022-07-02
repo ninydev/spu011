@@ -22,8 +22,13 @@ namespace WinFormsApp2.Views
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             var formTags = new FormTags();
-            FormTags.db = db;
             formTags.ShowDialog();
+        }
+
+        private void authorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formAuthors = new FormAuthors();
+            formAuthors.ShowDialog();
         }
     }
 }

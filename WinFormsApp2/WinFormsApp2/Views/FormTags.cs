@@ -15,13 +15,17 @@ namespace WinFormsApp2.Views
         public static Data.ApplicationDbContext db;
         public FormTags()
         {
+            db = FormLinq.db;
             InitializeComponent();
+            LoadTags();
+            
         }
 
         private void LoadTags()
         {
             listBoxTags.Items.Clear();
-            listBoxTags.Items.AddRange(db.Tags.ToArray());
+            if (db.Tags != null)
+                listBoxTags.Items.AddRange(db.Tags.ToArray());
 
         }
 
@@ -43,9 +47,6 @@ namespace WinFormsApp2.Views
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-
         }
     }
 }
