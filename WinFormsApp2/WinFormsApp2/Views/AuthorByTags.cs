@@ -109,6 +109,22 @@ namespace WinFormsApp2.Views
             //    }
             //    listBoxAuthors.Items.Add(s);
             //}
+
+            var res = (from a in db.Authors
+                           .Include(a => a.Tags)
+                           .Include(a=>a.Posts)
+                       where a.Tags.Count() > 0
+                       orderby a.Title descending
+                       select new { a.Title, cp = a.Posts.Count, tc = a.Tags.Count}).ToList();
+            foreach (var item in res)
+            {
+                string s = item.Title + "(" + item.cp + " => " +  item.tc +  ")";
+                //foreach (var t in item.Tags.ToArray())
+                //{
+                //    s += " | " + t.Title;
+                //}
+                listBoxAuthors.Items.Add(s);
+            }
         }
     }
 }
