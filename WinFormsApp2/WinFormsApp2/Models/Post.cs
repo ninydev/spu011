@@ -19,6 +19,11 @@ namespace WinFormsApp2.Models
         public Guid AuthorId { get; set; }
         virtual public Author Author { get; set; }
 
-        virtual public List<Tag> Tags { get; set; }
+        virtual public ICollection<Tag> Tags { get; set; }
+
+        public override string ToString()
+        {
+            return this.Title;
+        }
     }
 }

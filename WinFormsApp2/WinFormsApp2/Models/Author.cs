@@ -15,8 +15,13 @@ namespace WinFormsApp2.Models
 
         public int Level { get; set; } 
 
-        virtual public List<Post> Posts { get; set; }
+        virtual public ICollection<Post> Posts { get; set; }
 
-        virtual public List<Tag> Tags { get; set; }
+        virtual public ICollection<Tag> Tags { get; set; }
+
+        public override string ToString()
+        {
+            return this.Title;
+        }
     }
 }

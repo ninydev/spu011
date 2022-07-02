@@ -25,11 +25,15 @@ namespace WinFormsApp2.Data
                 .Property(p => p.CreatedAt)
                 .HasDefaultValueSql("getdate()");
 
-            //builder.Entity<Models.Post>()
-            //    .HasMany<Models.Tag>(p=> p.Tags)
-            //    .WithMany(t=> t.Posts)
-            //    .UsingEntity(j => j.ToTable("Pivot_TagForPosts"));
+            builder.Entity<Models.Post>()
+                .HasMany<Models.Tag>(p => p.Tags)
+                .WithMany(t => t.Posts)
+                .UsingEntity(j => j.ToTable("Pivot_TagForPosts"));
 
+            builder.Entity<Models.Author>()
+                .HasMany<Models.Tag>(a => a.Tags)
+                .WithMany(t => t.Authors)
+                .UsingEntity(j => j.ToTable("Pivot_TagForAuthors"));
 
             //builder.Entity<Models.Student>()
             //    .HasIndex(u => u.Email)

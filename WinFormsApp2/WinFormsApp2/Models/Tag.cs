@@ -11,9 +11,14 @@ namespace WinFormsApp2.Models
 
         public Guid Id { get; set; } // = Guid.NewGuid(); // Лучше в базе
 
-        public string Name { get; set; }
+        public string Title { get; set; }
 
-        virtual public List<Post> Posts { get; set; }
-        virtual public List<Post> Authors { get; set; }
+        virtual public ICollection<Post> Posts { get; set; }
+        virtual public ICollection<Author> Authors { get; set; }
+
+        public override string ToString()
+        {
+            return this.Title;
+        }
     }
 }

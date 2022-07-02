@@ -30,8 +30,8 @@ namespace WinFormsApp2.Views
             // var grups = db.Groups.Include(g => g.Students);
             // lstGroups.Items.AddRange(grups.ToArray());
 
-            var grups = db.Groups; // .Include(g => g.Students);
-            lstGroups.Items.AddRange(grups.ToArray());
+            // var grups = db.Groups; // .Include(g => g.Students);
+            // lstGroups.Items.AddRange(grups.ToArray());
 
 
             // Загрузка только сущностей групп
