@@ -30,5 +30,11 @@ namespace WinFormsApp2.Views
             var formAuthors = new FormAuthors();
             formAuthors.ShowDialog();
         }
+
+        private void auhtorByTagsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = new AuthorByTags();
+            f.ShowDialog();
+        }
     }
 }

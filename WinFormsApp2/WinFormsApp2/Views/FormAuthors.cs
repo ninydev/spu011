@@ -17,6 +17,7 @@ namespace WinFormsApp2.Views
         public FormAuthors()
         {
             InitializeComponent();
+            db = FormLinq.db;
             LoadAuthors();
             listBoxTags.Items.AddRange(db.Tags.ToArray());
         }

@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.authorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.auhtorByTagsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,7 +39,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.authorsToolStripMenuItem});
+            this.authorsToolStripMenuItem,
+            this.auhtorByTagsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -58,6 +60,13 @@
             this.authorsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.authorsToolStripMenuItem.Text = "Authors";
             this.authorsToolStripMenuItem.Click += new System.EventHandler(this.authorsToolStripMenuItem_Click);
+            // 
+            // auhtorByTagsToolStripMenuItem
+            // 
+            this.auhtorByTagsToolStripMenuItem.Name = "auhtorByTagsToolStripMenuItem";
+            this.auhtorByTagsToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.auhtorByTagsToolStripMenuItem.Text = "AuhtorByTags";
+            this.auhtorByTagsToolStripMenuItem.Click += new System.EventHandler(this.auhtorByTagsToolStripMenuItem_Click);
             // 
             // FormLinq
             // 
@@ -80,5 +89,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem authorsToolStripMenuItem;
+        private ToolStripMenuItem auhtorByTagsToolStripMenuItem;
     }
 }
