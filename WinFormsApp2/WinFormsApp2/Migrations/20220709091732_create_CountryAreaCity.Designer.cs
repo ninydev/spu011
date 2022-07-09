@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WinFormsApp2.Data;
 
@@ -11,9 +12,10 @@ using WinFormsApp2.Data;
 namespace WinFormsApp2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220709091732_create_CountryAreaCity")]
+    partial class create_CountryAreaCity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,7 +69,7 @@ namespace WinFormsApp2.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("WinFormsApp2.Models.Post", b =>
@@ -92,7 +94,7 @@ namespace WinFormsApp2.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("Posts", (string)null);
+                    b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("WinFormsApp2.Models.Tag", b =>
@@ -107,7 +109,7 @@ namespace WinFormsApp2.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tags", (string)null);
+                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("WinFormsApp2.Models.World.Area", b =>
@@ -127,7 +129,7 @@ namespace WinFormsApp2.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("Areas", (string)null);
+                    b.ToTable("Areas");
                 });
 
             modelBuilder.Entity("WinFormsApp2.Models.World.City", b =>
@@ -147,7 +149,7 @@ namespace WinFormsApp2.Migrations
 
                     b.HasIndex("AreaId");
 
-                    b.ToTable("Cities", (string)null);
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("WinFormsApp2.Models.World.Country", b =>
@@ -162,7 +164,7 @@ namespace WinFormsApp2.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Сountries", (string)null);
+                    b.ToTable("Сountries");
                 });
 
             modelBuilder.Entity("AuthorTag", b =>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 
 namespace WinFormsApp2.Views
 {
@@ -35,6 +36,42 @@ namespace WinFormsApp2.Views
         {
             var f = new AuthorByTags();
             f.ShowDialog();
+        }
+
+        private void ByCountryName()
+        {
+            string CountryName = "Ukraine";
+
+            var C = db.Сountries.Where(c => c.Name == CountryName).First();
+            var Cities = db.Cities.Include(c => c.Area)
+                .Where(c => c.Area.CountryId == C.Id);
+
+            var Cv2 = db.Cities.Include(c => c.Area)
+                .Where(c => c.Area.CountryId == 
+                    db.Сountries.Where(c => c.Name == CountryName).First().Id);
+
+            var Cv3 = from c in db.Cities.Include(c=> c.Area)
+                      where c.Area.CountryId == (
+                        from co in db.Сountries
+                        where co.Name == CountryName
+                        select co.Id
+                      ).First()
+                      select c;
+            /*
+            SELECT Cities.Id, Cities.Name FROM Cities
+                JOIN Areas ON Cities.AreaId = Areas.Id
+                JOIN Counties ON Coutries.Id = Areas.CoutryId
+                WHERE Coutries.Name = CountryName
+            */
+
+            //var Cities = db.Cities
+            //    .Include(c=>c.Area)
+            //    .ThenInclude(a=>a.Country)
+            //    .Where(a => a.)
+            //db.
+            //Сountries.Where(c=> c.Name == CountryName).First()
+            //.Areas.Include(a => a.Cities)
+
         }
     }
 }

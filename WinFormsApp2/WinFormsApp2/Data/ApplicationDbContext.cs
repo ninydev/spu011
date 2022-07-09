@@ -9,6 +9,14 @@ namespace WinFormsApp2.Data
 {
     public class ApplicationDbContext : DbContext
     {
+        public DbSet<Models.Shop.Category> Categories { get; set; }
+
+        public DbSet<Models.World.Country> Сountries { get; set; }
+        public DbSet<Models.World.Area> Areas { get; set; }
+        public DbSet<Models.World.City> Cities { get; set; }
+
+
+
         //public ApplicationDbContext()
         //{
         //    this.Configuration.LazyLoadingEnabled = true;
@@ -20,6 +28,31 @@ namespace WinFormsApp2.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            //builder.Entity<Models.Shop.Category>()
+            //    .HasMany<Models.Shop.Category>(c => c.ChildCategories)
+            //    .WithOne<Models.Shop.Category>(c => c.ParentCategory)
+            //    .HasForeignKey(c=>c.ParentCategoryId)
+            //    .HasPrincipalKey(c => c.Id);
+
+            //builder.Entity<Models.Shop.Category>()
+            //    .HasOne<Models.Shop.Category>(c => c.ParentCategory)
+            //    .WithMany<Models.Shop.Category>(c => c.ChildCategories);
+
+            builder.Entity<Models.Shop.Category>()
+                .HasOne<Models.Shop.Category>(c => c.ParentCategory);
+
+            builder.Entity<Models.Shop.Category>()
+                .HasMany<Models.Shop.Category>(c => c.ChildCategories);
+
+
+            //;
+            //    .HasOne<Models.Shop.Category>(c => c.ParentCategory)
+            //    .HasMany<Models.Shop.Category>(c => c.ChildCategories);
+
+            builder.Entity<Models.Shop.Category>()
+                .HasMany<Models.Shop.Category>(c => c.ChildCategories);
+
 
             builder.Entity<Models.Post>()
                 .Property(p => p.CreatedAt)
